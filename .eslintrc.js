@@ -13,5 +13,6 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'import/no-named-default': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
   },
 };
