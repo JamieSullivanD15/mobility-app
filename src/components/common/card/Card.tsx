@@ -1,5 +1,18 @@
-import React from 'react';
+import React, { type ReactNode } from 'react';
+import { clsx } from 'clsx';
 
-export const Card = () => {
-  return <div></div>;
+import styles from './Card.module.scss';
+
+interface CardProps {
+  children: ReactNode;
+  classNames?: string;
+}
+
+export const Card = ({ children, classNames = '' }: CardProps) => {
+  const classes: string = clsx({
+    [styles.card]: true,
+    [classNames]: true,
+  });
+
+  return <div className={classes}>{children}</div>;
 };

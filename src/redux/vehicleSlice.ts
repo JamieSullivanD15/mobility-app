@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { VEHICLE_URL } from '../../common/constants';
+import { VEHICLE_URL } from '../common/constants';
 
-import type { Vehicle, LoadingStatus } from '../../common/types';
+import type { Vehicle, LoadingStatus } from '../common/types';
 
 export interface VehicleState {
   data: Vehicle[];

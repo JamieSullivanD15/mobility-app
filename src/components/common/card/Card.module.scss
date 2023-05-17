@@ -1,0 +1,9 @@
+@use 'sass:map';
+@import '../../../styles/settings';
+
+.card {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.125);
+  border-radius: 6px;
+  padding: map.get($spacing, 'lg');
+  width: 100%;
+}

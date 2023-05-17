@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { default as vehicleReducer } from '../features/vehicle/vehicleSlice';
+import { default as vehicleReducer } from './vehicleSlice';
 
 const store = configureStore({
   reducer: {

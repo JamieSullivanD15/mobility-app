@@ -1,0 +1,18 @@
+@use 'sass:map';
+@import '../../styles/settings';
+
+.list {
+  list-style: none;
+
+  li {
+    cursor: pointer;
+    margin-bottom: map.get($spacing, 'lg');
+    position: relative;
+    top: 0;
+    transition: top ease 0.1s;
+
+    &:hover {
+      top: -5px;
+    }
+  }
+}
