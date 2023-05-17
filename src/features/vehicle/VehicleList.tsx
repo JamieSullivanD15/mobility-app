@@ -1,14 +1,13 @@
 import React from 'react';
 
 import { VehicleItem } from './VehicleItem';
+import { useAppSelector } from '../../hooks/useAppSelector';
 
 import type { Vehicle } from '../../common/types';
 
-interface VehicleListProps {
-  vehicles: Vehicle[];
-}
+export const VehicleList = () => {
+  const vehicles = useAppSelector((state) => state.vehicle.data);
 
-export const VehicleList = ({ vehicles }: VehicleListProps) => {
   return (
     <ul>
       {vehicles.map((vehicle: Vehicle) => (

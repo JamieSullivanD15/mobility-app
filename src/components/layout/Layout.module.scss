@@ -1,0 +1,14 @@
+@use 'sass:map';
+@import 'src/styles/settings';
+
+.header {
+  background: $white;
+  display: flex;
+  align-items: center;
+  padding: map.get($spacing, 'sm') map.get($spacing, 'xxxl');
+  border-bottom: 1px solid $gray-mid;
+}
+
+.container {
+  padding: map.get($spacing, 'xxl') map.get($spacing-alt, 'xl');
+}

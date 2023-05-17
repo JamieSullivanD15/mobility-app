@@ -1,0 +1,32 @@
+@use 'sass:map';
+@import '../../../styles/settings';
+
+@each $key, $value in $font-family {
+  .font-#{$key} {
+    font-family: $value;
+  }
+}
+
+@each $key, $value in $font-size {
+  .font-#{$key} {
+    font-size: $value;
+  }
+}
+
+@each $key, $value in $line-height {
+  .font-#{$key} {
+    line-height: $value;
+  }
+}
+
+@each $key, $value in $colours {
+  .font-#{$key} {
+    color: $value;
+  }
+}
+
+@each $key, $value in $text-align {
+  .text-#{$key} {
+    text-align: $value;
+  }
+}
