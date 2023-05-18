@@ -35,7 +35,11 @@ export const fetchVehicles = createAsyncThunk(
 export const vehicleSlice = createSlice({
   name: 'vehicle',
   initialState,
-  reducers: {},
+  reducers: {
+    setSortOrder: (state: VehicleState, action) => {
+      state.sortOrder = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchVehicles.pending, (state: VehicleState) => {
@@ -56,5 +60,5 @@ export const vehicleSlice = createSlice({
   },
 });
 
-// export const { fetchData } = vehicleSlice.actions;
+export const { setSortOrder } = vehicleSlice.actions;
 export default vehicleSlice.reducer;

@@ -5,6 +5,8 @@ import styles from './Table.module.scss';
 
 import type { Cell } from './Table';
 import Button from '../button/Button';
+import { Icon } from '../font/Icon';
+import { faSortUp } from '@fortawesome/free-solid-svg-icons';
 
 interface TableCellProps {
   cell: Cell;
@@ -22,7 +24,15 @@ const TableCell = ({ cell, isHeaderCell }: TableCellProps) => {
           >
             {cell.label}
           </Text>
-          <Button onClick={() => {}}>Sort</Button>
+          <Button
+            onClick={() => {}}
+            isIcon
+          >
+            <Icon
+              colour='dark'
+              icon={faSortUp}
+            />
+          </Button>
         </>
       ) : (
         <Text isBlock={false}>{cell.label}</Text>
