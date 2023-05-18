@@ -16,3 +16,10 @@
     }
   }
 }
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $gray-mid;
+  padding: map.get($spacing, 'sm') map.get($spacing, 'lg');
+}

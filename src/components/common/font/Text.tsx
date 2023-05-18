@@ -35,6 +35,7 @@ const Text = ({
     [styles['font-xs']]: size === 'xs',
     [styles['font-sm']]: size === 'sm',
     [styles['font-md']]: size === 'md',
+    [styles['font-md']]: size === 'md',
     [styles['font-dark']]: colour === 'dark',
     [styles['font-gray-dark']]: colour === 'gray',
     [styles['font-white']]: colour === 'white',

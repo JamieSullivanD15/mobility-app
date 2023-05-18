@@ -8,6 +8,8 @@ import Heading from '../components/common/font/Heading';
 import useAppDispatch from '../hooks/useAppDispatch';
 import { fetchVehicles } from '../redux/vehicleSlice';
 import VehicleImage from '../components/vehicle/VehicleImage';
+import VehicleInfoRow from '../components/vehicle/VehicleInfoRow';
+import { toCamelCase } from '../common/utils';
 
 import type { RootState } from '../redux/store';
 import type { Vehicle } from '../common/types';
@@ -37,10 +39,40 @@ const VehicleInfo = () => {
     );
   }
 
+  const { eta, supplier, product, price, category } = vehicle;
+
   return (
     <main className={styles.container}>
       <Card>
-        <VehicleImage category={vehicle.category} />
+        <VehicleImage category={category} />
+        <Heading
+          size='xl'
+          weight='bold'
+          align='center'
+        >
+          {toCamelCase(category.vehicleType)}
+        </Heading>
+        <VehicleInfoRow
+          label='ETA'
+          value={`${eta} min`}
+        />
+        <VehicleInfoRow
+          label='Supplier'
+          value={supplier.supplierName}
+          shouldCamelCase
+        />
+        <VehicleInfoRow
+          label='Bags'
+          value={product.bags.max}
+        />
+        <VehicleInfoRow
+          label='Seats'
+          value={product.maxSeats}
+        />
+        <VehicleInfoRow
+          label='Price'
+          value={`${price.amount} ${price.currency}`}
+        />
       </Card>
     </main>
   );
