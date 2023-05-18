@@ -1,18 +1,26 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { VEHICLE_URL } from '../common/constants';
 
-import type { Vehicle, LoadingStatus } from '../common/types';
+import { VEHICLE_TABLE_KEYS, VEHICLE_URL } from '../../common/constants';
+import { getTableRows, sortTableRows } from './utils';
+
+import type { Vehicle, LoadingStatus } from '../../common/types';
+import type { Row, TableSortOrder } from '../../components/common/table/Table';
 
 export interface VehicleState {
   data: Vehicle[];
   loadingStatus: LoadingStatus;
-  tableData: string[];
+  tableRows: Row[];
+  sortOrder: TableSortOrder;
 }
 
 const initialState: VehicleState = {
   data: [],
   loadingStatus: 'idle',
-  tableData: [],
+  tableRows: [],
+  sortOrder: {
+    key: VEHICLE_TABLE_KEYS.ETA,
+    isAsc: true,
+  },
 };
 
 export const fetchVehicles = createAsyncThunk(
@@ -37,8 +45,13 @@ export const vehicleSlice = createSlice({
         state.loadingStatus = 'failed';
       })
       .addCase(fetchVehicles.fulfilled, (state: VehicleState, action: any) => {
-        state.loadingStatus = 'idle';
         state.data = action.payload;
+        state.loadingStatus = 'idle';
+        state.tableRows = sortTableRows(
+          state.sortOrder.key,
+          state.sortOrder.isAsc,
+          getTableRows(action.payload)
+        );
       });
   },
 });

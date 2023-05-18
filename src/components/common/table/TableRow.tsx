@@ -7,12 +7,13 @@ import TableCell from './TableCell';
 import type { Cell } from './Table';
 
 interface TableHeaderProps {
+  id: string;
   cells: Cell[];
   isHeader?: boolean;
   onClick?: () => void;
 }
 
-const TableRow = ({ cells, isHeader, onClick }: TableHeaderProps) => {
+const TableRow = ({ id, cells, isHeader, onClick }: TableHeaderProps) => {
   return (
     <div
       className={clsx({
@@ -21,9 +22,9 @@ const TableRow = ({ cells, isHeader, onClick }: TableHeaderProps) => {
       })}
       onClick={onClick}
     >
-      {cells.map((cell: Cell) => (
+      {cells.map((cell: Cell, i: number) => (
         <TableCell
-          key={cell.key}
+          key={`${id}-${i}`}
           cell={cell}
           isHeaderCell={isHeader}
         />

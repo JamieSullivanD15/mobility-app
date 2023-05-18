@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './Vehicle.module.scss';
-import Text from '../common/font/Text';
+import Text from '../../components/common/font/Text';
 import { toCamelCase } from '../../common/utils';
 import { clsx } from 'clsx';
 

@@ -21,3 +21,26 @@ export const VEHICLE_TABLE_KEYS = {
   CATEGORY: 'productType',
   VEHICLE_TYPE: 'vehicleType',
 };
+
+export const VEHICLE_TABLE_HEADER_CELLS = [
+  {
+    key: VEHICLE_TABLE_KEYS.ETA,
+    label: 'ETA',
+  },
+  {
+    key: VEHICLE_TABLE_KEYS.SUPPLIER,
+    label: 'Supplier',
+  },
+  {
+    key: VEHICLE_TABLE_KEYS.PRICE,
+    label: 'Price',
+  },
+  {
+    key: VEHICLE_TABLE_KEYS.CATEGORY,
+    label: 'Category',
+  },
+  {
+    key: VEHICLE_TABLE_KEYS.VEHICLE_TYPE,
+    label: 'Vehicle Type',
+  },
+];

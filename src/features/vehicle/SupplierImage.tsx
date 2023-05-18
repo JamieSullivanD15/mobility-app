@@ -1,7 +1,7 @@
 import React from 'react';
 
 import useSupplierImage from '../../hooks/useSupplierImage';
-import Text from '../common/font/Text';
+import Text from '../../components/common/font/Text';
 
 import type { Supplier } from '../../common/types';
 

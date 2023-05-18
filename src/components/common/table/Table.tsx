@@ -13,22 +13,33 @@ export interface Row {
   cells: Cell[];
 }
 
-interface TableProps {
-  keys: Cell[];
+export interface TableSortOrder {
+  key: string;
+  isAsc: boolean;
+}
+
+export interface TableData {
+  headerCells: Cell[];
   rows: Row[];
+}
+
+interface TableProps {
+  data: TableData;
   onRowClick?: (id: string) => void;
 }
 
-const Table = ({ keys, rows, onRowClick }: TableProps) => {
+const Table = ({ data, onRowClick }: TableProps) => {
   return (
     <div className={styles.container}>
       <TableRow
-        cells={keys}
+        id='header'
+        cells={data.headerCells}
         isHeader
       />
-      {rows.map((row: Row) => (
+      {data.rows.map((row: Row) => (
         <TableRow
           key={row.id}
+          id={row.id}
           cells={row.cells}
           onClick={() => {
             if (onRowClick) {

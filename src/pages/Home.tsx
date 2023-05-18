@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
 import styles from '../components/layout/Layout.module.scss';
-import { fetchVehicles } from '../redux/vehicleSlice';
+import { fetchVehicles } from '../features/vehicle/vehicleSlice';
 import useAppDispatch from '../hooks/useAppDispatch';
 import useAppSelector from '../hooks/useAppSelector';
-import VehicleTable from '../components/vehicle/VehicleTable';
+import VehicleTable from '../features/vehicle/VehicleTable';
 
-import type { RootState } from '../redux/store';
+import type { RootState } from '../app/store';
 import Spinner from '../components/common/spinner/Spinner';
 
 const Home = () => {

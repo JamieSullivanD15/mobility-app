@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import styles from '../components/vehicle/Vehicle.module.scss';
+import styles from '../features/vehicle/Vehicle.module.scss';
 import Card from '../components/common/card/Card';
 import useAppSelector from '../hooks/useAppSelector';
 import Heading from '../components/common/font/Heading';
 import useAppDispatch from '../hooks/useAppDispatch';
-import { fetchVehicles } from '../redux/vehicleSlice';
-import VehicleImage from '../components/vehicle/VehicleImage';
-import VehicleInfoRow from '../components/vehicle/VehicleInfoRow';
+import { fetchVehicles } from '../features/vehicle/vehicleSlice';
+import VehicleImage from '../features/vehicle/VehicleImage';
+import VehicleInfoRow from '../features/vehicle/VehicleInfoRow';
 import { toCamelCase } from '../common/utils';
 
-import type { RootState } from '../redux/store';
+import type { RootState } from '../app/store';
 import type { Vehicle } from '../common/types';
 
 const VehicleInfo = () => {
