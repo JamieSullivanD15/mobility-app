@@ -17,9 +17,32 @@
   }
 }
 
-.infoRow {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid $gray-mid;
-  padding: map.get($spacing, 'sm') map.get($spacing, 'lg');
+.info {
+  &_container {
+    display: flex;
+    justify-content: center;
+    margin: map.get($spacing, 'xxl') map.get($spacing, 'md') 0 map.get($spacing, 'md');
+  }
+
+  &_image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: map.get($spacing, 'sm');
+
+    img {
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+
+  &_row {
+    display: flex;
+    justify-content: space-between;
+    padding: map.get($spacing, 'sm') map.get($spacing, 'lg');
+    border-bottom: 1px solid $gray-mid;
+
+    &-highlight {
+      background: $gray-light;
+    }
+  }
 }

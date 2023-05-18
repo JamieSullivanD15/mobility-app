@@ -13,3 +13,11 @@ export const VEHICLE_TYPES = {
   MINIBUS: 'MINIBUS',
   ACCESSIBLE: 'ACCESSIBLE',
 };
+
+export const VEHICLE_TABLE_KEYS = {
+  ETA: 'eta',
+  SUPPLIER: 'supplier',
+  PRICE: 'price',
+  CATEGORY: 'productType',
+  VEHICLE_TYPE: 'vehicleType',
+};

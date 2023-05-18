@@ -6,11 +6,13 @@ import type { Vehicle, LoadingStatus } from '../common/types';
 export interface VehicleState {
   data: Vehicle[];
   loadingStatus: LoadingStatus;
+  tableData: string[];
 }
 
 const initialState: VehicleState = {
   data: [],
   loadingStatus: 'idle',
+  tableData: [],
 };
 
 export const fetchVehicles = createAsyncThunk(

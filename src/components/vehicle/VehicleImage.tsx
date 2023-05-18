@@ -1,5 +1,6 @@
 import React from 'react';
 
+import styles from './Vehicle.module.scss';
 import Text from '../common/font/Text';
 import useVehicleImage from '../../hooks/useVehicleImage';
 
@@ -16,10 +17,12 @@ const VehicleImage = ({ category }: VehicleImageProps) => {
   if (error) return <Text size='xs'>Something went wrong</Text>;
 
   return (
-    <img
-      src={image}
-      alt={`${category.productType}-${category.vehicleType}`}
-    />
+    <div className={styles.info_image}>
+      <img
+        src={image}
+        alt={`${category.productType}-${category.vehicleType}`}
+      />
+    </div>
   );
 };
 

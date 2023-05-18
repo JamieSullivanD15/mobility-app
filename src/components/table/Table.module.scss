@@ -1,0 +1,40 @@
+@use 'sass:map';
+@import 'src/styles/settings';
+
+$border-radius: 4px;
+
+.container {
+  border: 1px solid $gray-mid;
+  background: $white;
+  border-radius: $border-radius;
+  //max-width: 1000px;
+  //width: 100%;
+}
+
+.header {
+  background: $gray-light;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.row {
+  display: flex;
+  flex: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: $gray-light;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $gray-mid;
+  }
+}
+
+.cell {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: map.get($spacing, 'sm');
+}

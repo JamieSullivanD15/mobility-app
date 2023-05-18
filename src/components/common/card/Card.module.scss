@@ -2,8 +2,10 @@
 @import '../../../styles/settings';
 
 .card {
+  background: $white;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.125);
   border-radius: 6px;
   padding: map.get($spacing, 'lg');
-  width: 100%;
+  width: 400px;
+  //max-width: max-width00px;
 }

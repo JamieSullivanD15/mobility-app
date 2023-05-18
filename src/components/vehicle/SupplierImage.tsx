@@ -18,6 +18,7 @@ const SupplierImage = ({ supplier }: VehicleImageProps) => {
 
   return (
     <img
+      width={50}
       src={image}
       alt={`${supplierKey}`}
     />

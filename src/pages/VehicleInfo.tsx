@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import styles from '../components/layout/Layout.module.scss';
+import styles from '../components/vehicle/Vehicle.module.scss';
 import Card from '../components/common/card/Card';
 import useAppSelector from '../hooks/useAppSelector';
 import Heading from '../components/common/font/Heading';
@@ -42,7 +42,7 @@ const VehicleInfo = () => {
   const { eta, supplier, product, price, category } = vehicle;
 
   return (
-    <main className={styles.container}>
+    <main className={styles.info_container}>
       <Card>
         <VehicleImage category={category} />
         <Heading
@@ -63,7 +63,7 @@ const VehicleInfo = () => {
         />
         <VehicleInfoRow
           label='Bags'
-          value={product.bags.max}
+          value={`${product.bags.max} max`}
         />
         <VehicleInfoRow
           label='Seats'
@@ -72,6 +72,7 @@ const VehicleInfo = () => {
         <VehicleInfoRow
           label='Price'
           value={`${price.amount} ${price.currency}`}
+          isHighlighted
         />
       </Card>
     </main>

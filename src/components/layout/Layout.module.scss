@@ -10,5 +10,7 @@
 }
 
 .container {
-  margin: 100px 400px;
+  display: flex;
+  justify-content: center;
+  margin: map.get($spacing, 'xxl') map.get($spacing, 'md') 0 map.get($spacing, 'md');
 }

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 
-import { VehicleList } from '../components/vehicle/VehicleList';
 import styles from '../components/layout/Layout.module.scss';
 import { fetchVehicles } from '../redux/vehicleSlice';
 import useAppDispatch from '../hooks/useAppDispatch';
 import useAppSelector from '../hooks/useAppSelector';
+import VehicleTable from '../components/vehicle/VehicleTable';
+
 import type { RootState } from '../redux/store';
+import Spinner from '../components/common/spinner/Spinner';
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -20,9 +22,13 @@ const Home = () => {
     }
   }, [dispatch]);
 
+  if (loadingStatus === 'loading') {
+    return <Spinner />;
+  }
+
   return (
     <main className={styles.container}>
-      <VehicleList />
+      <VehicleTable />
     </main>
   );
 };
