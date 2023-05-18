@@ -8,7 +8,7 @@ interface CardProps {
   classNames?: string;
 }
 
-export const Card = ({ children, classNames = '' }: CardProps) => {
+const Card = ({ children, classNames = '' }: CardProps) => {
   const classes: string = clsx({
     [styles.card]: true,
     [classNames]: true,
@@ -16,3 +16,5 @@ export const Card = ({ children, classNames = '' }: CardProps) => {
 
   return <div className={classes}>{children}</div>;
 };
+
+export default Card;

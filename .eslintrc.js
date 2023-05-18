@@ -14,5 +14,6 @@ module.exports = {
   rules: {
     'import/no-named-default': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/strict-boolean-expressions': 0,
   },
 };

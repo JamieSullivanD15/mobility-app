@@ -65,26 +65,14 @@ $line-height: (
 
 // Spacing
 $spacing: (
-  'none': 0rem,
-  'xxxs': 0.0625rem,  // 1px
-  'xxs':  0.125rem,   // 2px
-  'xs':   0.25rem,    // 4px
-  'sm':   0.5rem,     // 8px
-  'md':   0.75rem,    // 12px
-  'lg':   1.5rem,     // 24px
-  'xl':   2.25rem,    // 36px
-  'xxl':  3rem,       // 48px
-  'xxxl': 3.75rem,    // 60px
-);
-
-$spacing-alt: (
-  'xxxs': 5rem,       // 80px
-  'xxs':  6.25rem,    // 100px
-  'xs':   7.5rem,     // 120px
-  'sm':   9.375rem,   // 150px
-  'md':   12.5rem,    // 200px
-  'lg':   18.75rem,   // 300px
-  'xl':   25rem,      // 400px
-  'xxl':  31.25rem,   // 500px
-  'xxxl': 37.5rem,    // 600px
+  'none': 0,
+  'xxxs': 1px,
+  'xxs':  2px,
+  'xs':   4px,
+  'sm':   8px,
+  'md':   12px,
+  'lg':   24px,
+  'xl':   36px,
+  'xxl':  48px,
+  'xxxl': 60px,
 );

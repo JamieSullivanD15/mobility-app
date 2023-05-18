@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Card } from '../common/card/Card';
+import Card from '../common/card/Card';
+import SupplierImage from './SupplierImage';
 
 import type { Vehicle } from '../../common/types';
 
@@ -9,9 +10,9 @@ interface VehicleItemProps {
   vehicle: Vehicle;
 }
 
-export const VehicleItem = ({ vehicle }: VehicleItemProps) => {
+const VehicleItem = ({ vehicle }: VehicleItemProps) => {
   const navigate = useNavigate();
-  const { availabilityId, category } = vehicle;
+  const { availabilityId, category, supplier } = vehicle;
 
   const handleClick = () => {
     navigate(`/vehicle/${availabilityId}`);
@@ -19,7 +20,12 @@ export const VehicleItem = ({ vehicle }: VehicleItemProps) => {
 
   return (
     <li onClick={handleClick}>
-      <Card>{category.vehicleType}</Card>
+      <Card>
+        <SupplierImage supplier={supplier} />
+        {category.vehicleType}
+      </Card>
     </li>
   );
 };
+
+export default VehicleItem;

@@ -1,3 +1,7 @@
+export type ProductType = 'STANDARD' | 'OTHER';
+export type VehicleType = 'SEDAN' | 'SUV' | 'ECO' | 'MINIBUS' | 'ACCESSIBLE';
+export type SubCategory = 'HIGHLY_RECOMMENDED' | 'MOST_POPULAR';
+
 export interface Supplier {
   supplierName: string;
   supplierKey: string;
@@ -19,9 +23,9 @@ export interface Price {
 }
 
 export interface Category {
-  productType: string;
-  vehicleType: string;
-  subCategory: string;
+  productType: ProductType;
+  vehicleType: VehicleType;
+  subCategory: SubCategory;
 }
 
 export interface Vehicle {

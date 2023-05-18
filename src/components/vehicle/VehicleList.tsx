@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { VehicleItem } from './VehicleItem';
-import { useAppSelector } from '../../hooks/useAppSelector';
+import VehicleItem from './VehicleItem';
+import useAppSelector from '../../hooks/useAppSelector';
 import Spinner from '../common/spinner/Spinner';
 import styles from './Vehicle.module.scss';
 
@@ -29,3 +29,5 @@ export const VehicleList = () => {
     </ul>
   );
 };
+
+export default VehicleList;

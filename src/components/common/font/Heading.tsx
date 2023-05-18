@@ -14,7 +14,7 @@ interface HeadingProps {
   classNames?: string;
 }
 
-export const Heading = ({
+const Heading = ({
   children,
   weight = 'bold',
   colour = 'dark',
@@ -40,3 +40,5 @@ export const Heading = ({
     {children}
   </h1>
 );
+
+export default Heading;

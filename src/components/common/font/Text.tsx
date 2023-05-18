@@ -18,7 +18,7 @@ interface TextProps {
   classNames?: string;
 }
 
-export const Text = ({
+const Text = ({
   children,
   isBlock = true,
   weight = 'regular',
@@ -50,3 +50,5 @@ export const Text = ({
     <span className={classes}>{children}</span>
   );
 };
+
+export default Text;
