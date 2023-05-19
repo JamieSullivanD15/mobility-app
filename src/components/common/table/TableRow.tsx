@@ -37,9 +37,9 @@ const TableRow = ({
       })}
       onClick={onRowClick}
     >
-      {cells.map((cell: Cell, i: number) => (
+      {cells.map((cell: Cell) => (
         <TableCell
-          key={`${id}-${i}`}
+          key={`${id}-${cell.key}`}
           cell={cell}
           isHeaderCell={isHeader}
           onClick={() => {

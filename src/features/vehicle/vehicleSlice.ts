@@ -82,7 +82,6 @@ const getTableRows = (vehicles: Vehicle[]) =>
 
 const sortTableRows = (key: string, asc: boolean, tableRows: Row[]) => {
   let sortedRows = tableRows;
-  console.log(tableRows);
 
   sortedRows = sortedRows.sort((a: Row, b: Row) => {
     const aValue = a.cells.find((cell: Cell) => cell.key === key);
