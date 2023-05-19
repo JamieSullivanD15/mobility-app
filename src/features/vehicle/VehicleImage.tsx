@@ -15,7 +15,7 @@ const VehicleImage = ({ category }: VehicleImageProps) => {
   const { isLoading, error, image } = useVehicleImage(category);
 
   if (error) return <Text size='xs'>Something went wrong</Text>;
-  if (!isLoading) {
+  if (isLoading) {
     return (
       <div className={styles.info_image}>
         <img
