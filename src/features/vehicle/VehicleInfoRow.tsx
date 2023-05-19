@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type ReactNode } from 'react';
 
 import styles from './Vehicle.module.scss';
 import Text from '../../components/common/font/Text';
@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 interface VehicleInfoRowProps {
   label: string;
-  value: string | number;
+  value: string | number | ReactNode;
   shouldCamelCase?: boolean;
   isHighlighted?: boolean;
 }
@@ -29,6 +29,7 @@ const VehicleInfoRow = ({
         size='md'
         colour={isHighlighted ? 'dark' : 'gray'}
         weight={isHighlighted ? 'bold' : 'medium'}
+        isBlock={false}
       >
         {label}
       </Text>
@@ -36,6 +37,7 @@ const VehicleInfoRow = ({
         size='md'
         colour={isHighlighted ? 'dark' : 'gray'}
         weight={isHighlighted ? 'bold' : 'medium'}
+        isBlock={false}
       >
         {shouldCamelCase && typeof value === 'string'
           ? toCamelCase(value)

@@ -13,4 +13,11 @@
   display: flex;
   justify-content: center;
   margin: map.get($spacing, 'xxl') map.get($spacing, 'md') 0 map.get($spacing, 'md');
+
+  @media only screen and (max-width: $tablet) {
+    margin: map.get($spacing, 'xxl')
+    map.get($spacing, 'xs')
+    0
+    map.get($spacing, 'xs')
+  }
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import styles from '../features/vehicle/Vehicle.module.scss';
 import Card from '../components/common/card/Card';
@@ -10,12 +10,16 @@ import { fetchVehicles } from '../features/vehicle/vehicleSlice';
 import VehicleImage from '../features/vehicle/VehicleImage';
 import VehicleInfoRow from '../features/vehicle/VehicleInfoRow';
 import { toCamelCase } from '../common/utils';
+import Button from '../components/common/button/Button';
+import { Icon } from '../components/common/font/Icon';
+import SupplierImage from '../features/vehicle/SupplierImage';
 
 import type { RootState } from '../app/store';
 import type { Vehicle } from '../common/types';
 
 const VehicleInfo = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const vehicles = useAppSelector((state: RootState) => state.vehicle.data);
   const vehicle = vehicles.find(
@@ -42,40 +46,57 @@ const VehicleInfo = () => {
   const { eta, supplier, product, price, category } = vehicle;
 
   return (
-    <main className={styles.info_container}>
-      <Card>
-        <VehicleImage category={category} />
-        <Heading
-          size='xl'
-          weight='bold'
-          align='center'
-        >
-          {toCamelCase(category.vehicleType)}
-        </Heading>
-        <VehicleInfoRow
-          label='ETA'
-          value={`${eta} min`}
-        />
-        <VehicleInfoRow
-          label='Supplier'
-          value={supplier.supplierName}
-          shouldCamelCase
-        />
-        <VehicleInfoRow
-          label='Bags'
-          value={`${product.bags.max} max`}
-        />
-        <VehicleInfoRow
-          label='Seats'
-          value={product.maxSeats}
-        />
-        <VehicleInfoRow
-          label='Price'
-          value={`${price.amount} ${price.currency}`}
-          isHighlighted
-        />
-      </Card>
-    </main>
+    <>
+      <main className={styles.info_container}>
+        <aside>
+          <Button
+            onClick={() => {
+              navigate(-1);
+            }}
+            isIcon
+          >
+            <Icon
+              colour='dark'
+              icon='arrow-left'
+              size='xl'
+              classNames={styles.info_backBtn}
+            />
+          </Button>
+        </aside>
+        <Card>
+          <VehicleImage category={category} />
+          <Heading
+            size='xl'
+            weight='bold'
+            align='center'
+          >
+            {toCamelCase(category.vehicleType)}
+          </Heading>
+          <VehicleInfoRow
+            label='ETA'
+            value={`${eta} min`}
+          />
+          <VehicleInfoRow
+            label='Supplier'
+            value={<SupplierImage supplier={supplier} />}
+            shouldCamelCase
+          />
+          <VehicleInfoRow
+            label='Bags'
+            value={`${product.bags.max} max`}
+          />
+          <VehicleInfoRow
+            label='Seats'
+            value={product.maxSeats}
+          />
+          <VehicleInfoRow
+            label='Price'
+            value={`${price.amount} ${price.currency}`}
+            isHighlighted
+          />
+        </Card>
+      </main>
+    </>
   );
 };
 

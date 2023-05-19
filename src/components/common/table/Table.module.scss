@@ -7,6 +7,8 @@ $border-radius: 4px;
   border: 1px solid $gray-mid;
   background: $white;
   border-radius: $border-radius;
+  max-width: 1000px;
+  width: 100%;
 }
 
 .header {
@@ -18,7 +20,6 @@ $border-radius: 4px;
 
 .row {
   display: flex;
-  flex: 1;
   cursor: pointer;
 
   &:hover {
@@ -31,9 +32,16 @@ $border-radius: 4px;
 }
 
 .cell {
-  width: 150px;
+  min-width: 65px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: map.get($spacing, 'sm');
+  padding: map.get($spacing, 'sm') map.get($spacing, 'xs');
+
+  &_icon {
+    @media only screen and (max-width: $tablet) {
+      font-size: 0.75rem !important;
+    }
+  }
 }

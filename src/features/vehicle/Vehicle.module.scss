@@ -21,7 +21,34 @@
   &_container {
     display: flex;
     justify-content: center;
-    margin: map.get($spacing, 'xxl') map.get($spacing, 'md') 0 map.get($spacing, 'md');
+    margin: map.get($spacing, 'xxl')
+      map.get($spacing, 'md')
+      0
+      map.get($spacing, 'md');
+    position: relative;
+
+    aside {
+      position: absolute;
+      left: 280px;
+    }
+
+    @media only screen and (max-width: $desktop) {
+      aside {
+        left: 180px;
+      }
+    }
+
+    @media only screen and (max-width: $laptop) {
+      flex-direction: column;
+      align-items: center;
+      margin-top: map.get($spacing, 'lg');
+
+      aside {
+        position: relative;
+        left: 0;
+        margin-bottom: map.get($spacing, 'lg');
+      }
+    }
   }
 
   &_image {
@@ -41,8 +68,22 @@
     padding: map.get($spacing, 'sm') map.get($spacing, 'lg');
     border-bottom: 1px solid $gray-mid;
 
+    span {
+      display: flex;
+      align-items: center;
+    }
+
     &-highlight {
       background: $gray-light;
+    }
+  }
+
+  &_backBtn {
+    font-size: 4rem;
+    line-height: 0;
+
+    &:hover {
+      color: $primary;
     }
   }
 }

@@ -12,6 +12,10 @@
 
     i {
       margin-left: map.get($spacing, 'sm');
+
+      @media only screen and (max-width: $tablet) {
+        margin-left: map.get($spacing, 'xs');
+      }
     }
   }
 }

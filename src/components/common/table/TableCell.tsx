@@ -1,13 +1,14 @@
 import React from 'react';
+import { clsx } from 'clsx';
 
 import styles from './Table.module.scss';
 import Text from '../font/Text';
 
 import Button from '../button/Button';
 import { Icon } from '../font/Icon';
+import useScreenSize from '../../../hooks/useScreenSize';
 
 import type { Cell, TableSortOrder } from './Table';
-import { clsx } from 'clsx';
 
 interface TableCellProps {
   cell: Cell;
@@ -25,6 +26,8 @@ const TableCell = ({
   const isActive = sortOrder?.key === cell.key;
   const isAsc = sortOrder?.isAsc;
   const icon = isActive && isAsc ? 'caret-up-fill' : 'caret-down-fill';
+  const { isTablet } = useScreenSize();
+  const fontSize = isTablet ? 'xs' : 'sm';
 
   return (
     <div
@@ -42,17 +45,24 @@ const TableCell = ({
             <Text
               isBlock={false}
               weight={isActive ? 'bold' : 'regular'}
+              size={fontSize}
             >
               {cell.label}
             </Text>
             <Icon
               colour='dark'
               icon={icon}
+              classNames={styles.cell_icon}
             />
           </Button>
         </>
       ) : (
-        <Text isBlock={false}>{cell.label}</Text>
+        <Text
+          isBlock={false}
+          size={fontSize}
+        >
+          {cell.label}
+        </Text>
       )}
     </div>
   );
