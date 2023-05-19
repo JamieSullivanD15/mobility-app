@@ -11,7 +11,7 @@ const useScreenSize = () => {
       setIsMobile(false);
     }
 
-    if (window.innerWidth < 480) {
+    if (window.innerWidth < 768) {
       setIsTablet(true);
     } else {
       setIsTablet(false);

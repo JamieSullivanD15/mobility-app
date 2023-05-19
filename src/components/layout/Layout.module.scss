@@ -4,9 +4,19 @@
 .header {
   background: $white;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: map.get($spacing, 'sm') map.get($spacing, 'xxxl');
+  padding: map.get($spacing, 'sm') 100px;
   border-bottom: 1px solid $gray-mid;
+
+  &-dark {
+    background: $gray-dark;
+    border-bottom: 1px solid $dark;
+  }
+
+  @media only screen and (max-width: $mobile) {
+    padding: map.get($spacing, 'sm') map.get($spacing, 'lg');
+  }
 }
 
 .container {

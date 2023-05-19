@@ -1,7 +1,11 @@
 import React from 'react';
+import { clsx } from 'clsx';
 
 import styles from './Table.module.scss';
 import TableRow from './TableRow';
+import useAppSelector from '../../../hooks/useAppSelector';
+
+import type { RootState } from '../../../app/store';
 
 export interface Cell {
   key: string;
@@ -31,8 +35,15 @@ interface TableProps {
 }
 
 const Table = ({ data, sortOrder, onSort, onRowClick }: TableProps) => {
+  const { isDarkMode } = useAppSelector((state: RootState) => state.app);
+
   return (
-    <div className={styles.container}>
+    <div
+      className={clsx({
+        [styles.container]: true,
+        [styles['container-dark']]: isDarkMode,
+      })}
+    >
       <TableRow
         id='header'
         cells={data.headerCells}

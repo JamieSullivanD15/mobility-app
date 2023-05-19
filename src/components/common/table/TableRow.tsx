@@ -3,8 +3,10 @@ import { clsx } from 'clsx';
 
 import styles from './Table.module.scss';
 import TableCell from './TableCell';
+import useAppSelector from '../../../hooks/useAppSelector';
 
 import type { Cell, TableSortOrder } from './Table';
+import type { RootState } from '../../../app/store';
 
 interface TableHeaderProps {
   id: string;
@@ -23,11 +25,15 @@ const TableRow = ({
   onSort,
   sortOrder,
 }: TableHeaderProps) => {
+  const { isDarkMode } = useAppSelector((state: RootState) => state.app);
+
   return (
     <div
       className={clsx({
         [styles.row]: true,
+        [styles['row-dark']]: isDarkMode,
         [styles.header]: isHeader,
+        [styles['header-dark']]: isHeader && isDarkMode,
       })}
       onClick={onRowClick}
     >

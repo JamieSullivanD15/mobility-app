@@ -21,16 +21,16 @@ const VehicleInfo = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const vehicles = useAppSelector((state: RootState) => state.vehicle.data);
-  const vehicle = vehicles.find(
-    (vehicle: Vehicle) => vehicle.availabilityId === id
+  const { isDarkMode } = useAppSelector((state: RootState) => state.app);
+  const { data, loadingStatus } = useAppSelector(
+    (state: RootState) => state.vehicle
   );
-  const loadingStatus = useAppSelector(
-    (state: RootState) => state.vehicle.loadingStatus
+  const vehicle = data.find(
+    (vehicle: Vehicle) => vehicle.availabilityId === id
   );
 
   useEffect(() => {
-    if (loadingStatus === 'idle' && vehicles.length === 0) {
+    if (loadingStatus === 'idle' && data.length === 0) {
       void dispatch(fetchVehicles());
     }
   }, [dispatch]);
@@ -56,7 +56,7 @@ const VehicleInfo = () => {
             isIcon
           >
             <Icon
-              colour='dark'
+              colour={isDarkMode ? 'white' : 'dark'}
               icon='arrow-left'
               size='xl'
               classNames={styles.info_backBtn}

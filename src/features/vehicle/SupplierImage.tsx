@@ -11,9 +11,9 @@ interface VehicleImageProps {
 
 const SupplierImage = ({ supplier }: VehicleImageProps) => {
   const { supplierKey } = supplier;
-  const { loading, error, image } = useSupplierImage(supplierKey);
+  const { isLoading, error, image } = useSupplierImage(supplierKey);
 
-  if (loading) return <Text size='xs'>Loading image...</Text>;
+  if (isLoading) return <Text size='xs'>Loading image...</Text>;
   if (error) return <Text size='xs'>Something went wrong</Text>;
 
   return (

@@ -5,9 +5,9 @@ import { fetchVehicles } from '../features/vehicle/vehicleSlice';
 import useAppDispatch from '../hooks/useAppDispatch';
 import useAppSelector from '../hooks/useAppSelector';
 import VehicleTable from '../features/vehicle/VehicleTable';
+import Spinner from '../components/common/spinner/Spinner';
 
 import type { RootState } from '../app/store';
-import Spinner from '../components/common/spinner/Spinner';
 
 const Home = () => {
   const dispatch = useAppDispatch();

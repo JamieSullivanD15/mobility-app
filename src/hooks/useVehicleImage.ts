@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import type { Category } from '../common/types';
 
 const useVehicleImage = (category: Category, supplier: string = '') => {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [image, setImage] = useState('');
   const { productType, vehicleType } = category;
@@ -18,7 +18,7 @@ const useVehicleImage = (category: Category, supplier: string = '') => {
       } catch (err: any) {
         setError(err);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
@@ -26,7 +26,7 @@ const useVehicleImage = (category: Category, supplier: string = '') => {
   }, [category]);
 
   return {
-    loading,
+    isLoading,
     error,
     image,
   };

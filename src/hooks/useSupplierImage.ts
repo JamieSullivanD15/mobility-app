@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const useSupplierImage = (supplier: string) => {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [image, setImage] = useState('');
 
@@ -13,7 +13,7 @@ const useSupplierImage = (supplier: string) => {
       } catch (err: any) {
         setError(err);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
@@ -21,7 +21,7 @@ const useSupplierImage = (supplier: string) => {
   }, [supplier]);
 
   return {
-    loading,
+    isLoading,
     error,
     image,
   };

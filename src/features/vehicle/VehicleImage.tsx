@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './Vehicle.module.scss';
 import Text from '../../components/common/font/Text';
 import useVehicleImage from '../../hooks/useVehicleImage';
+import placeholderImg from '../../assets/img/placeholder.svg';
 
 import type { Category } from '../../common/types';
 
@@ -11,10 +12,20 @@ interface VehicleImageProps {
 }
 
 const VehicleImage = ({ category }: VehicleImageProps) => {
-  const { loading, error, image } = useVehicleImage(category);
+  const { isLoading, error, image } = useVehicleImage(category);
 
-  if (loading) return <Text size='xs'>Loading image...</Text>;
   if (error) return <Text size='xs'>Something went wrong</Text>;
+  if (isLoading) {
+    return (
+      <div className={styles.info_image}>
+        <img
+          height={300}
+          src={placeholderImg}
+          alt='placeholder'
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.info_image}>
