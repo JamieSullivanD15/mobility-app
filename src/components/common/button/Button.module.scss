@@ -3,8 +3,11 @@
 
 .btn {
   &_icon {
-    margin-top: map.get($spacing, 'sm');
-    margin-left: map.get($spacing, 'sm');
     background: none;
+
+    svg {
+      vertical-align: middle;
+      margin-left: map.get($spacing, 'sm');
+    }
   }
 }

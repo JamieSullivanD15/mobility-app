@@ -22,13 +22,9 @@ const Home = () => {
     }
   }, [dispatch]);
 
-  if (loadingStatus === 'loading') {
-    return <Spinner />;
-  }
-
   return (
     <main className={styles.container}>
-      <VehicleTable />
+      {loadingStatus === 'loading' ? <Spinner /> : <VehicleTable />}
     </main>
   );
 };

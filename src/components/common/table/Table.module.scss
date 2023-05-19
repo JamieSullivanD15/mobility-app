@@ -13,7 +13,6 @@ $border-radius: 4px;
   background: $gray-light;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-  pointer-events: none;
 }
 
 .row {
@@ -36,4 +35,14 @@ $border-radius: 4px;
   justify-content: center;
   align-items: center;
   padding: map.get($spacing, 'sm');
+
+  svg {
+    top: -12px;
+  }
+
+  &-asc {
+    svg {
+      margin-top: 8px;
+    }
+  }
 }

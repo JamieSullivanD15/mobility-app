@@ -25,23 +25,27 @@ export interface TableData {
 
 interface TableProps {
   data: TableData;
+  sortOrder: TableSortOrder;
+  onSort: (key: string) => void;
   onRowClick?: (id: string) => void;
 }
 
-const Table = ({ data, onRowClick }: TableProps) => {
+const Table = ({ data, sortOrder, onSort, onRowClick }: TableProps) => {
   return (
     <div className={styles.container}>
       <TableRow
         id='header'
         cells={data.headerCells}
         isHeader
+        onSort={onSort}
+        sortOrder={sortOrder}
       />
       {data.rows.map((row: Row) => (
         <TableRow
           key={row.id}
           id={row.id}
           cells={row.cells}
-          onClick={() => {
+          onRowClick={() => {
             if (onRowClick) {
               onRowClick(row.id);
             }

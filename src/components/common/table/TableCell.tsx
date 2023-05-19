@@ -1,36 +1,53 @@
 import React from 'react';
 
-import Text from '../font/Text';
 import styles from './Table.module.scss';
+import Text from '../font/Text';
+import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 
-import type { Cell } from './Table';
 import Button from '../button/Button';
 import { Icon } from '../font/Icon';
-import { faSortUp } from '@fortawesome/free-solid-svg-icons';
+
+import type { Cell, TableSortOrder } from './Table';
+import { clsx } from 'clsx';
 
 interface TableCellProps {
   cell: Cell;
   isHeaderCell?: boolean;
+  onClick: () => void;
+  sortOrder?: TableSortOrder;
 }
 
-const TableCell = ({ cell, isHeaderCell }: TableCellProps) => {
+const TableCell = ({
+  cell,
+  isHeaderCell,
+  onClick,
+  sortOrder,
+}: TableCellProps) => {
+  const isActive = sortOrder?.key === cell.key;
+  const isAsc = sortOrder?.isAsc;
+  const icon = isActive && isAsc ? faSortUp : faSortDown;
   return (
-    <div className={styles.cell}>
+    <div
+      className={clsx({
+        [styles.cell]: true,
+        [styles['cell-asc']]: isActive && isAsc,
+      })}
+    >
       {isHeaderCell ? (
         <>
-          <Text
-            isBlock={false}
-            weight='medium'
-          >
-            {cell.label}
-          </Text>
           <Button
-            onClick={() => {}}
+            onClick={onClick}
             isIcon
           >
+            <Text
+              isBlock={false}
+              weight={isActive ? 'bold' : 'regular'}
+            >
+              {cell.label}
+            </Text>
             <Icon
               colour='dark'
-              icon={faSortUp}
+              icon={icon}
             />
           </Button>
         </>
