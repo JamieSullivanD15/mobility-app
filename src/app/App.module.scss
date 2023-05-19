@@ -3,6 +3,7 @@
 .app {
   background: $gray-light;
   height: 100%;
+  overflow-y: scroll;
 
   &-dark {
     background: $dark;
