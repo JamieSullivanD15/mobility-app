@@ -2,11 +2,15 @@
 @import '../../../styles/settings';
 
 .btn {
+  display: flex;
+  align-items: center;
+
   &_icon {
     background: none;
+    display: flex;
+    align-items: center;
 
-    svg {
-      vertical-align: middle;
+    i {
       margin-left: map.get($spacing, 'sm');
     }
   }

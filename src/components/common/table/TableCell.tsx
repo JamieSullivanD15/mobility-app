@@ -2,7 +2,6 @@ import React from 'react';
 
 import styles from './Table.module.scss';
 import Text from '../font/Text';
-import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '../button/Button';
 import { Icon } from '../font/Icon';
@@ -25,7 +24,8 @@ const TableCell = ({
 }: TableCellProps) => {
   const isActive = sortOrder?.key === cell.key;
   const isAsc = sortOrder?.isAsc;
-  const icon = isActive && isAsc ? faSortUp : faSortDown;
+  const icon = isActive && isAsc ? 'caret-up-fill' : 'caret-down-fill';
+
   return (
     <div
       className={clsx({
