@@ -1,7 +1,7 @@
 import React from 'react';
 
-import useSupplierImage from '../../hooks/useSupplierImage';
-import Text from '../../components/common/font/Text';
+import { ReactComponent as SupplierBolt } from '../../assets/img/supplier_bolt.svg';
+import { ReactComponent as SupplierFreenow } from '../../assets/img/supplier_freenow.svg';
 
 import type { Supplier } from '../../common/types';
 
@@ -9,20 +9,19 @@ interface VehicleImageProps {
   supplier: Supplier;
 }
 
+interface Images {
+  bolt: any;
+  freenow: any;
+}
+
 const SupplierImage = ({ supplier }: VehicleImageProps) => {
-  const { supplierKey } = supplier;
-  const { isLoading, error, image } = useSupplierImage(supplierKey);
-
-  if (isLoading) return <Text size='xs'>Loading image...</Text>;
-  if (error) return <Text size='xs'>Something went wrong</Text>;
-
-  return (
-    <img
-      width={30}
-      src={image}
-      alt={`${supplierKey}`}
-    />
-  );
+  const images: Images = {
+    bolt: SupplierBolt,
+    freenow: SupplierFreenow,
+  };
+  const imageStr = supplier.supplierKey;
+  const Image = images[imageStr as keyof Images];
+  return <Image />;
 };
 
 export default SupplierImage;

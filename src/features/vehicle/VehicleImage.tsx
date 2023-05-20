@@ -1,9 +1,11 @@
 import React from 'react';
 
 import styles from './Vehicle.module.scss';
-import Text from '../../components/common/font/Text';
-import useVehicleImage from '../../hooks/useVehicleImage';
-import placeholder from '../../assets/img/placeholder.jpg';
+import { ReactComponent as OtherAccessible } from '../../assets/img/vehicle_other_accessible.svg';
+import { ReactComponent as OtherEco } from '../../assets/img/vehicle_other_eco.svg';
+import { ReactComponent as StandardMinibus } from '../../assets/img/vehicle_standard_minibus.svg';
+import { ReactComponent as StandardSedan } from '../../assets/img/vehicle_standard_sedan.svg';
+import { ReactComponent as StandardSuv } from '../../assets/img/vehicle_standard_suv.svg';
 
 import type { Category } from '../../common/types';
 
@@ -11,32 +13,28 @@ interface VehicleImageProps {
   category: Category;
 }
 
+interface Images {
+  other_accessible: any;
+  other_eco: any;
+  standard_minibus: any;
+  standard_sedan: any;
+  standard_suv: any;
+}
+
 const VehicleImage = ({ category }: VehicleImageProps) => {
-  const { isLoading, error, image } = useVehicleImage(category);
-
-  if (error) return <Text size='xs'>Something went wrong</Text>;
-  if (isLoading) {
-    return (
-      <div className={styles.info_image}>
-        <img
-          src={placeholder}
-          alt='placeholder'
-        />
-      </div>
-    );
-  }
-
+  const images: Images = {
+    other_accessible: OtherAccessible,
+    other_eco: OtherEco,
+    standard_minibus: StandardMinibus,
+    standard_sedan: StandardSedan,
+    standard_suv: StandardSuv,
+  };
+  const { productType, vehicleType } = category;
+  const imageStr = `${productType.toLowerCase()}_${vehicleType.toLowerCase()}`;
+  const Image = images[imageStr as keyof Images];
   return (
     <div className={styles.info_image}>
-      <object
-        type='image/svg+xml'
-        data={image}
-      >
-        <img
-          src={placeholder}
-          alt='placeholder'
-        />
-      </object>
+      <Image />
     </div>
   );
 };
