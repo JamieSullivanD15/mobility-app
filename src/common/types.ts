@@ -1,6 +1,12 @@
+import type { FunctionComponent, SVGProps } from 'react';
+
 export type ProductType = 'STANDARD' | 'OTHER';
 export type VehicleType = 'SEDAN' | 'SUV' | 'ECO' | 'MINIBUS' | 'ACCESSIBLE';
 export type SubCategory = 'HIGHLY_RECOMMENDED' | 'MOST_POPULAR';
+export type LoadingStatus = 'idle' | 'loading' | 'succeeded' | 'failed';
+export type SVG = FunctionComponent<
+  SVGProps<SVGSVGElement> & { title?: string | undefined }
+>;
 
 export interface Supplier {
   supplierName: string;
@@ -36,5 +42,3 @@ export interface Vehicle {
   price: Price;
   category: Category;
 }
-
-export type LoadingStatus = 'idle' | 'loading' | 'succeeded' | 'failed';

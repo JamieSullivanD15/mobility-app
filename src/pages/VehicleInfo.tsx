@@ -87,7 +87,7 @@ const VehicleInfo = () => {
           />
           <VehicleInfoRow
             label='Seats'
-            value={product.maxSeats}
+            value={`${product.maxSeats} max`}
           />
           <VehicleInfoRow
             label='Price'

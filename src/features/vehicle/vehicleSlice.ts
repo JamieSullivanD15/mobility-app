@@ -49,7 +49,7 @@ const getTableCells = (vehicle: Vehicle) =>
       case SUPPLIER:
         return {
           key: SUPPLIER,
-          label: vehicle.supplier.supplierName,
+          label: toCamelCase(vehicle.supplier.supplierName),
         };
       case PRICE:
         return {

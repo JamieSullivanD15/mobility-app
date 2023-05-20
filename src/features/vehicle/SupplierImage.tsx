@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { ReactComponent as SupplierBolt } from '../../assets/img/supplier_bolt.svg';
-import { ReactComponent as SupplierFreenow } from '../../assets/img/supplier_freenow.svg';
+import { ReactComponent as SupplierBolt } from '../../assets/img/supplier-bolt.svg';
+import { ReactComponent as SupplierFreenow } from '../../assets/img/supplier-freenow.svg';
 
-import type { Supplier } from '../../common/types';
+import type { Supplier, SVG } from '../../common/types';
 
 interface VehicleImageProps {
   supplier: Supplier;
 }
 
 interface Images {
-  bolt: any;
-  freenow: any;
+  bolt: SVG;
+  freenow: SVG;
 }
 
 const SupplierImage = ({ supplier }: VehicleImageProps) => {
@@ -19,8 +19,7 @@ const SupplierImage = ({ supplier }: VehicleImageProps) => {
     bolt: SupplierBolt,
     freenow: SupplierFreenow,
   };
-  const imageStr = supplier.supplierKey;
-  const Image = images[imageStr as keyof Images];
+  const Image = images[supplier.supplierKey as keyof Images];
   return <Image />;
 };
 
